@@ -1,0 +1,27 @@
+@main("WebSockets test"){
+
+	<button class="send">Ping</button>
+
+	<div class="msg"></div>
+    	
+	<script type="text/javascript"/>
+		$(function() {
+			var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket
+			var sock = new WS("@routes.Websockets.websocketHandle().webSocketURL(request)")
+			    
+			sock.onmessage = function(event) {
+				$('.msg').append(event.data).append("<br />")
+			}
+			    
+			$('button.send').click(
+				function() {
+					var msg = "("+Date()+") "+"Client : Ping !"
+					sock.send(msg)
+					$('.msg').append(msg).append("<br />")
+				}
+			);
+		})
+    	</script>
+
+}
+

@@ -1,0 +1,15 @@
+@main("Comet Sockets test"){
+
+	<div class="msg"></div>
+
+	<script type="text/javascript" charset="utf-8">
+		  var cometMessage = function(event) {
+		    $('.msg').append(event)
+		  }
+	</script>
+
+	<iframe id="comet" src="/cs" style="visibility: hidden"></iframe>
+}
+
+
+	  

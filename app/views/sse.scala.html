@@ -1,0 +1,13 @@
+@main("WebSockets test"){
+
+	<div class="msg"></div>
+
+	<script type="text/javascript"/>
+		if(!!window.EventSource){
+			feed = new EventSource('http://localhost:9000/sseFeed');
+			feed.onmessage = function (event) {
+				alert(event)
+			};
+		}
+	</script>
+}
